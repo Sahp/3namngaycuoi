@@ -624,60 +624,38 @@
     document.querySelectorAll('.tl-item').forEach(el=>el.classList.add('visible'));
   }
 
-  // Gentle generative music-box melody (no external audio files needed)
-  let audioCtx = null;
+  // Nhạc nền — CHỈ dùng thẻ <audio>, không còn đoạn code nhạc nào khác
+  const bgMusic = document.getElementById('bgMusic');
   let musicPlaying = false;
-  let musicTimer = null;
-  const melody = [523.25,659.25,587.33,783.99,880.00,659.25,587.33,493.88];
-
-  function playNote(ctx, freq, time, duration, gainVal){
-    try{
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = freq;
-      gain.gain.setValueAtTime(0.0001, time);
-      gain.gain.linearRampToValueAtTime(gainVal, time + 0.03);
-      gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(time);
-      osc.stop(time + duration + 0.05);
-    }catch(err){ /* silently ignore */ }
-  }
-
-  function scheduleLoop(){
-    if(!musicPlaying || !audioCtx) return;
-    const now = audioCtx.currentTime + 0.1;
-    melody.forEach((freq, i)=>{
-      playNote(audioCtx, freq, now + i*0.7, 1.1, 0.045);
-    });
-    musicTimer = setTimeout(scheduleLoop, melody.length*700);
-  }
 
   function toggleMusic(){
-    try{
-      const audio = document.getElementById('bgMusic'); if(audio.paused){audio.play();} else {audio.pause();}
-      // if(!audioCtx){
-      //   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      // }
-      musicPlaying = !musicPlaying;
-      const btn = document.getElementById('musicToggle');
-      if(musicPlaying){
-        if(audio.state === 'suspended'){ audio.resume(); }
-        scheduleLoop();
+    const btn = document.getElementById('musicToggle');
+    if(musicPlaying){
+      bgMusic.pause();
+      musicPlaying = false;
+      btn.textContent = '♪ Bật nhạc';
+      btn.classList.remove('playing');
+    } else {
+      bgMusic.play().then(()=>{
+        musicPlaying = true;
         btn.textContent = '♪ Đang phát';
         btn.classList.add('playing');
-        btn.setAttribute('aria-pressed','true');
-      } else {
-        clearTimeout(musicTimer);
-        btn.textContent = '♪ Bật nhạc';
-        btn.classList.remove('playing');
-        btn.setAttribute('aria-pressed','false');
-      }
-    }catch(err){
-      console.error('Audio error:', err);
+      }).catch(err=>{
+        console.log('Trình duyệt chặn, cần bấm nút thêm 1 lần:', err.message);
+      });
     }
   }
+
+  let autoStarted = false;
+  function tryAutoStart(){
+    if(autoStarted) return;
+    autoStarted = true;
+    toggleMusic();
+    window.removeEventListener('click', tryAutoStart);
+    window.removeEventListener('touchstart', tryAutoStart);
+  }
+  window.addEventListener('click', tryAutoStart, {once:true});
+  window.addEventListener('touchstart', tryAutoStart, {once:true});
 </script>
 
 </body>
