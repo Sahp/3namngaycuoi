@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sơn & Hà — 3 năm yêu thương</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF3EC;
+    --wine:#5B2333;
+    --rose:#C1495A;
+    --gold:#B98A42;
+    --nordic:#4F6B7D;
+    --paper:#F3E6D8;
+    --ink:#3A2A2E;
+    --line:rgba(91,35,51,0.20);
+    --shadow-soft: 0 2px 24px rgba(58,42,46,0.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ivory:#241318;
+      --wine:#F3D9DE;
+      --rose:#E48A98;
+      --gold:#D8B26E;
+      --nordic:#8FB0C4;
+      --paper:#2E1B22;
+      --ink:#EDE0E2;
+      --line:rgba(243,217,222,0.20);
+      --shadow-soft: 0 2px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ivory:#241318;
+    --wine:#F3D9DE;
+    --rose:#E48A98;
+    --gold:#D8B26E;
+    --nordic:#8FB0C4;
+    --paper:#2E1B22;
+    --ink:#EDE0E2;
+    --line:rgba(243,217,222,0.20);
+    --shadow-soft: 0 2px 24px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    color:var(--wine);
+    margin:0;
+    font-weight:500;
+  }
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+  .narrow{max-width:60ch; margin:0 auto;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 24px 60px;
+    overflow:hidden;
+  }
+  .hero-path-svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    opacity:0.5;
+  }
+  .hero-path{
+    fill:none;
+    stroke:url(#pathGradient);
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-dasharray:1400;
+    stroke-dashoffset:1400;
+    animation:drawPath 2.6s cubic-bezier(.6,.1,.25,1) forwards 0.2s;
+  }
+  @keyframes drawPath{ to{ stroke-dashoffset:0; } }
+
+  .hero-content{ position:relative; z-index:1; opacity:0; animation:fadeUp 1s ease forwards 1s;}
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+
+  .eyebrow{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--rose);
+    margin-bottom:18px;
+    letter-spacing:0.01em;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 8vw, 5.2rem);
+    line-height:1.05;
+    font-weight:500;
+  }
+  .hero h1 .amp{
+    font-style:italic;
+    color:var(--rose);
+    font-weight:400;
+  }
+  .hero-dates{
+    margin-top:22px;
+    font-size:1.05rem;
+    letter-spacing:0.03em;
+    color:var(--ink);
+    opacity:0.75;
+  }
+  .hero-dates span{ color:var(--gold); font-weight:600; }
+
+  .counter-box{
+    margin-top:44px;
+    font-family:'Fraunces', serif;
+    font-size:clamp(1rem, 2.6vw, 1.3rem);
+    color:var(--wine);
+    background:var(--paper);
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:100px;
+    box-shadow:var(--shadow-soft);
+  }
+  .counter-box small{
+    display:block;
+    font-family:'Mulish',sans-serif;
+    font-size:0.72rem;
+    color:var(--ink);
+    opacity:0.6;
+    margin-bottom:4px;
+    font-weight:600;
+  }
+
+  .scroll-cue{
+    margin-top:56px;
+    font-size:0.85rem;
+    color:var(--ink);
+    opacity:0.55;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+  }
+  .scroll-cue .arrow{
+    width:1px; height:34px; background:var(--line);
+    position:relative;
+  }
+  .scroll-cue .arrow::after{
+    content:'';
+    position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+    width:6px; height:6px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    opacity:0.55;
+    transform:translateX(-50%) rotate(45deg);
+  }
+
+  /* ---------- LETTER / INTRO ---------- */
+  .section{ padding:100px 24px; }
+  .letter{
+    text-align:center;
+  }
+  .letter p{
+    font-size:1.15rem;
+    color:var(--ink);
+  }
+  .letter p + p{ margin-top:20px; }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline-section{ padding:100px 0 60px; }
+  .timeline-heading{ text-align:center; padding:0 24px 70px; }
+  .timeline-heading h2{ font-size:clamp(1.8rem,4vw,2.6rem); }
+  .timeline-heading p{ margin-top:14px; color:var(--ink); opacity:0.65; }
+
+  .timeline{
+    position:relative;
+    max-width:900px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .timeline::before{
+    content:'';
+    position:absolute;
+    top:0; bottom:0; left:50%;
+    width:2px;
+    transform:translateX(-50%);
+    background:linear-gradient(to bottom,
+      var(--rose) 0%, var(--rose) 38%,
+      var(--gold) 50%,
+      var(--nordic) 62%, var(--nordic) 100%);
+    opacity:0.5;
+  }
+
+  .tl-item{
+    position:relative;
+    display:grid;
+    grid-template-columns: 1fr 56px 1fr;
+    align-items:start;
+    margin-bottom:64px;
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .tl-item.visible{ opacity:1; transform:translateY(0); }
+
+  .tl-marker{
+    grid-column:2;
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--ivory);
+    border:2px solid var(--marker-color, var(--rose));
+    color:var(--marker-color, var(--rose));
+    display:flex; align-items:center; justify-content:center;
+    z-index:2;
+  }
+  .tl-marker svg{ width:24px; height:24px; }
+
+  .tl-card{ padding-top:2px; }
+  .tl-item.side-left .tl-card{ grid-column:1; text-align:right; padding-right:32px; }
+  .tl-item.side-right .tl-card{ grid-column:3; text-align:left; padding-left:32px; }
+  .tl-item.side-left .tl-empty{ grid-column:3; }
+  .tl-item.side-right .tl-empty{ grid-column:1; }
+
+  .tl-date{
+    font-size:0.82rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    color:var(--marker-color, var(--gold));
+    margin-bottom:6px;
+  }
+  .tl-title{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    color:var(--wine);
+    margin-bottom:8px;
+  }
+  .tl-text{ font-size:0.98rem; opacity:0.8; margin-bottom:16px; }
+
+  .photo-frame{
+    aspect-ratio:4/3;
+    max-width:280px;
+    border-radius:6px;
+    border:1.5px dashed var(--line);
+    background:var(--paper);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color:var(--gold);
+    margin-left:auto;
+  }
+  .tl-item.side-right .photo-frame{ margin-left:0; margin-right:auto; }
+  .photo-frame svg{ width:28px; height:28px; opacity:0.6; }
+  .photo-frame span{ font-family:'Fraunces', serif; font-style:italic; font-size:0.82rem; opacity:0.7; }
+
+  /* ---------- XOAI FEATURE ---------- */
+  .feature{
+    background:var(--paper);
+    padding:110px 24px;
+    text-align:center;
+  }
+  .feature .eyebrow{ margin-bottom:14px; }
+  .feature h2{ font-size:clamp(2.1rem,5vw,3.2rem); }
+  .feature .tl-date{ margin-top:14px; justify-content:center; display:flex; }
+  .feature-photo{
+    width:min(360px, 80vw);
+    aspect-ratio:4/3;
+    margin:36px auto;
+    border-radius:8px;
+    border:1.5px dashed var(--line);
+    background:var(--ivory);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:var(--gold);
+  }
+  .feature-photo svg{ width:38px; height:38px; opacity:0.6; }
+  .feature-photo span{ font-family:'Fraunces', serif; font-style:italic; font-size:0.9rem; opacity:0.7; }
+  .feature p.desc{ max-width:56ch; margin:0 auto; font-size:1.08rem; opacity:0.85; }
+
+  /* ---------- CLOSING LETTER ---------- */
+  .closing{
+    padding:110px 24px 60px;
+    text-align:center;
+  }
+  .closing .sign{
+    margin-top:36px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.7rem;
+    color:var(--rose);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    padding:50px 24px 80px;
+    color:var(--ink);
+    opacity:0.55;
+    font-size:0.85rem;
+  }
+  footer .heart-row{ margin-bottom:14px; opacity:0.5; }
+
+  /* ---------- MUSIC TOGGLE ---------- */
+  #musicToggle{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    z-index:10;
+    background:var(--wine);
+    color:var(--ivory);
+    border:none;
+    border-radius:100px;
+    padding:12px 20px;
+    font-family:'Mulish', sans-serif;
+    font-size:0.85rem;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:var(--shadow-soft);
+    transition:transform 0.2s ease, opacity 0.2s ease;
+  }
+  #musicToggle:hover{ transform:translateY(-2px); }
+  #musicToggle.playing{ background:var(--rose); }
+  #musicToggle:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:720px){
+    .timeline::before{ left:26px; }
+    .tl-item{
+      grid-template-columns: 52px 1fr;
+      margin-bottom:48px;
+    }
+    .tl-marker{ grid-column:1; width:44px; height:44px; }
+    .tl-marker svg{ width:20px; height:20px; }
+    .tl-item.side-left .tl-card,
+    .tl-item.side-right .tl-card{
+      grid-column:2;
+      text-align:left;
+      padding-left:20px;
+      padding-right:0;
+    }
+    .tl-item.side-left .tl-empty,
+    .tl-item.side-right .tl-empty{ display:none; }
+    .photo-frame,
+    .tl-item.side-right .photo-frame{ margin:0; max-width:100%; }
+    .section{ padding:70px 20px; }
+    .feature{ padding:80px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-path{ animation:none; stroke-dashoffset:0; }
+    .hero-content{ animation:none; opacity:1; }
+    .tl-item{ transition:none; opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <svg class="hero-path-svg" viewBox="0 0 1000 800" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="pathGradient" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0%" stop-color="#C1495A"/>
+        <stop offset="45%" stop-color="#B98A42"/>
+        <stop offset="100%" stop-color="#4F6B7D"/>
+      </linearGradient>
+    </defs>
+    <path class="hero-path" d="M -50,650 C 150,750 250,550 400,600 C 550,650 600,450 750,420 C 880,395 900,250 1050,150"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="eyebrow">Kỷ niệm 3 năm ngày cưới</div>
+    <h1>Sơn <span class="amp">&</span> Hà</h1>
+    <div class="hero-dates">23.09.2023 <span>—</span> 23.09.2026</div>
+
+    <div class="counter-box">
+      <small>Đã cùng nhau đi qua</small>
+      <span id="counter">— ngày — giờ — phút — giây</span>
+    </div>
+
+    <div class="scroll-cue">
+      <span>Cuộn xuống để xem lại hành trình của chúng mình</span>
+      <span class="arrow"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO LETTER ============ -->
+<section class="section letter narrow">
+  <p>Ba năm trước, vào một ngày cuối tháng Chín, hai đứa mình nắm tay nhau bước qua một cánh cửa mới. Không ai biết trước con đường phía sau cánh cửa ấy sẽ đưa mình đi xa đến vậy — từ Việt Nam, qua từng sân bay, đến một đất nước cách nhà mười ngàn cây số.</p>
+  <p>Có những ngày chỉ có biển và nắng. Có những ngày cách nhau cả một đại dương. Và có một ngày, cả hai thế giới ấy hoà làm một, khi một thiên thần nhỏ tên Xoài ra đời.</p>
+  <p>Đây là hành trình ba năm của chúng mình — được viết lại bằng những ngày tháng không thể nào quên.</p>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="timeline-section">
+  <div class="timeline-heading">
+    <h2>Hành trình của chúng mình</h2>
+    <p>Từ một đám cưới ở Việt Nam, đến một mái nhà nhỏ ở Đan Mạch</p>
+  </div>
+
+  <div class="timeline">
+
+    <!-- 1 -->
+    <div class="tl-item side-left" style="--marker-color:#C1495A">
+      <div class="tl-card">
+        <div class="tl-date">23.09.2023</div>
+        <h3 class="tl-title">Ngày cưới</h3>
+        <p class="tl-text">Ngày mình chính thức là của nhau, trước mặt gia đình và những người thương yêu nhất.</p>
+        <div class="photo-frame">
+          <img src="cuoi1.JPG" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="cuoi2.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="cuoi3.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="cuoi4.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="cuoi5.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="cuoi6.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+        </div>
+      </div>
+      <div class="tl-marker" style="--marker-color:#C1495A">
+        <svg viewBox="0 0 48 48"><circle cx="18" cy="26" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="30" cy="26" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+      </div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="tl-item side-right" style="--marker-color:#C1495A">
+      <div class="tl-empty"></div>
+      <div class="tl-marker" style="--marker-color:#C1495A">
+        <svg viewBox="0 0 48 48"><circle cx="36" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 40 C20 28 22 22 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 22 C16 20 12 22 10 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 22 C26 18 30 18 34 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="40" x2="40" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tl-card">
+        <div class="tl-date">13.10.2023</div>
+        <h3 class="tl-title">Trăng mật ở Phú Quốc</h3>
+        <p class="tl-text">Những ngày đầu tiên của cuộc hôn nhân, chỉ có biển, nắng và hai đứa mình.</p>
+        <div class="photo-frame">
+          <img src="phuquoc1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="phuquoc2.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="phuquoc3.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="phuquoc4.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="phuquoc5.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="phuquoc6.JPG" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="tl-item side-left" style="--marker-color:#C1495A">
+      <div class="tl-card">
+        <div class="tl-date">20.06.2024</div>
+        <h3 class="tl-title">Đà Nẵng</h3>
+        <p class="tl-text">Một chuyến đi ngẫu hứng giữa lòng Việt Nam, một mùa hè đáng nhớ.</p>
+        <div class="photo-frame">
+          <img src="danang1.JPG" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danang2.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danang3.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danang4.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danang5.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danang6.JPG" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+        </div>
+      </div>
+      <div class="tl-marker" style="--marker-color:#C1495A">
+        <svg viewBox="0 0 48 48"><circle cx="34" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 36 L18 20 L26 30 L32 22 L42 36 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="tl-item side-right" style="--marker-color:#B98A42">
+      <div class="tl-empty"></div>
+      <div class="tl-marker" style="--marker-color:#B98A42">
+        <svg viewBox="0 0 48 48"><path d="M6 26 L40 14 L34 24 L40 34 L6 26 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="18" y1="24" x2="12" y2="34" stroke="currentColor" stroke-width="2"/></svg>
+      </div>
+      <div class="tl-card">
+        <div class="tl-date">19.10.2024</div>
+        <h3 class="tl-title">Hà sang Đan Mạch trước</h3>
+        <p class="tl-text">Lần đầu tiên xa nhau vì một khởi đầu mới — khó khăn, nhưng cần thiết.</p>
+        <div class="photo-frame">
+          <img src="danmach1.JPG" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="tl-item side-left" style="--marker-color:#B98A42">
+      <div class="tl-card">
+        <div class="tl-date">06.12.2024</div>
+        <h3 class="tl-title">Sơn sang Đan Mạch</h3>
+        <p class="tl-text">Cuối cùng, khoảng cách cũng khép lại. Hai đứa mình lại ở cạnh nhau.</p>
+        <div class="photo-frame">
+          <img src="danmach2.JPG" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danmach3.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danmach4.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danmach5.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="danmach6.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+        </div>
+      </div>
+      <div class="tl-marker" style="--marker-color:#B98A42">
+        <svg viewBox="0 0 48 48"><path d="M24 38 c-4-4-8-6-8-10 a4 4 0 0 1 8-2 a4 4 0 0 1 8 2c0 4-4 6-8 10Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="tl-item side-right" style="--marker-color:#4F6B7D">
+      <div class="tl-empty"></div>
+      <div class="tl-marker" style="--marker-color:#4F6B7D">
+        <svg viewBox="0 0 48 48"><path d="M24 24 c-6 0-8-6-6-12 c4 2 6 6 6 6 c0 0 2-4 6-6 c2 6 0 12-6 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="24" y1="24" x2="24" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tl-card">
+        <div class="tl-date">17.04.2025</div>
+        <h3 class="tl-title">Hà Lan</h3>
+        <p class="tl-text">Một chuyến đi ngắm hoa tulip, giữa châu Âu mùa xuân.</p>
+        <div class="photo-frame">
+          <img src="halan1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="halan2.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="tl-item side-left" style="--marker-color:#4F6B7D">
+      <div class="tl-card">
+        <div class="tl-date">08.06.2025</div>
+        <h3 class="tl-title">Berlin, Đức</h3>
+        <p class="tl-text">Đi qua thêm một thành phố, thêm một kỷ niệm của riêng hai đứa.</p>
+        <div class="photo-frame">
+          <img src="duc1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+          <img src="duc2.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+        </div>
+      </div>
+      <div class="tl-marker" style="--marker-color:#4F6B7D">
+        <svg viewBox="0 0 48 48"><line x1="10" y1="14" x2="10" y2="36" stroke="currentColor" stroke-width="2"/><line x1="18" y1="14" x2="18" y2="36" stroke="currentColor" stroke-width="2"/><line x1="30" y1="14" x2="30" y2="36" stroke="currentColor" stroke-width="2"/><line x1="38" y1="14" x2="38" y2="36" stroke="currentColor" stroke-width="2"/><line x1="6" y1="14" x2="42" y2="14" stroke="currentColor" stroke-width="2"/><line x1="6" y1="36" x2="42" y2="36" stroke="currentColor" stroke-width="2"/></svg>
+      </div>
+      <div class="tl-empty"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ XOÀI FEATURE ============ -->
+<section class="feature">
+  <div class="eyebrow">Cột mốc đẹp nhất</div>
+  <h2>Xoài chào đời</h2>
+  <div class="tl-date" style="color:var(--rose)">02.10.2025</div>
+  <div class="feature-photo">
+    <img src="xoai1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+    <img src="xoai2.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+    <img src="xoai3.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+    <img src="xoai4.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+    <img src="xoai5.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+    <img src="xoai6.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
+  </div>
+  <p class="desc">Một quả xoài nhỏ tên là Xoài, ra đời giữa một mùa thu Bắc Âu, mang theo cả Việt Nam lẫn Đan Mạch trong trái tim bé nhỏ ấy. Con là món quà đẹp nhất mà ba năm hôn nhân đã dành tặng cho ba mẹ, và là lý do để mọi hành trình phía trước đều đáng để mong chờ.</p>
+</section>
+
+<!-- ============ CLOSING LETTER ============ -->
+<section class="closing narrow">
+  <h2 style="font-size:clamp(1.6rem,4vw,2.2rem); margin-bottom:24px;">Gửi ba năm đã qua, và những năm còn lại</h2>
+  <p>Cảm ơn vì đã chọn đi cùng nhau qua từng ấy cây số, từng ấy đổi thay. Từ Việt Nam đến Đan Mạch, từ hai người thành ba người — hành trình này chưa bao giờ dễ dàng, nhưng chưa một ngày nào phải hối hận.</p>
+  <p>Chúc mừng 3 năm ngày cưới của chúng mình. Hẹn nhau ở những cột mốc tiếp theo — cùng nhau, luôn luôn.</p>
+  <div class="sign">Sơn & Hà</div>
+</section>
+
+<footer>
+  <div class="heart-row">♥ ♥ ♥</div>
+  23.09.2023 — mãi mãi
+</footer>
+<audio id="bgMusic" src="nhac.mp3" loop></audio>
+<button id="musicToggle" onclick="toggleMusic()" aria-pressed="false">♪ Bật nhạc</button>
+
+<script>
+  // Live "days together" counter
+  const weddingDate = new Date('2023-09-23T00:00:00');
+  function updateCounter(){
+    const now = new Date();
+    const diffMs = now - weddingDate;
+    if(diffMs < 0){ return; }
+    const totalSeconds = Math.floor(diffMs/1000);
+    const days = Math.floor(totalSeconds/86400);
+    const hours = Math.floor((totalSeconds%86400)/3600);
+    const minutes = Math.floor((totalSeconds%3600)/60);
+    const seconds = totalSeconds%60;
+    const el = document.getElementById('counter');
+    if(el){ el.textContent = days + ' ngày ' + hours + ' giờ ' + minutes + ' phút ' + seconds + ' giây'; }
+  }
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  // Scroll reveal for timeline items
+  try{
+    const revealEls = document.querySelectorAll('.tl-item');
+    if('IntersectionObserver' in window){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      },{threshold:0.15});
+      revealEls.forEach(el=>obs.observe(el));
+    } else {
+      revealEls.forEach(el=>el.classList.add('visible'));
+    }
+  }catch(err){
+    document.querySelectorAll('.tl-item').forEach(el=>el.classList.add('visible'));
+  }
+
+  // Gentle generative music-box melody (no external audio files needed)
+  let audioCtx = null;
+  let musicPlaying = false;
+  let musicTimer = null;
+  const melody = [523.25,659.25,587.33,783.99,880.00,659.25,587.33,493.88];
+
+  function playNote(ctx, freq, time, duration, gainVal){
+    try{
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.0001, time);
+      gain.gain.linearRampToValueAtTime(gainVal, time + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(time);
+      osc.stop(time + duration + 0.05);
+    }catch(err){ /* silently ignore */ }
+  }
+
+  function scheduleLoop(){
+    if(!musicPlaying || !audioCtx) return;
+    const now = audioCtx.currentTime + 0.1;
+    melody.forEach((freq, i)=>{
+      playNote(audioCtx, freq, now + i*0.7, 1.1, 0.045);
+    });
+    musicTimer = setTimeout(scheduleLoop, melody.length*700);
+  }
+
+  function toggleMusic(){
+    try{
+      const audio = document.getElementById('bgMusic'); if(audio.paused){audio.play();} else {audio.pause();}
+      // if(!audioCtx){
+      //   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      // }
+      musicPlaying = !musicPlaying;
+      const btn = document.getElementById('musicToggle');
+      if(musicPlaying){
+        if(audio.state === 'suspended'){ audio.resume(); }
+        scheduleLoop();
+        btn.textContent = '♪ Đang phát';
+        btn.classList.add('playing');
+        btn.setAttribute('aria-pressed','true');
+      } else {
+        clearTimeout(musicTimer);
+        btn.textContent = '♪ Bật nhạc';
+        btn.classList.remove('playing');
+        btn.setAttribute('aria-pressed','false');
+      }
+    }catch(err){
+      console.error('Audio error:', err);
+    }
+  }
+</script>
+
+</body>
+</html>
